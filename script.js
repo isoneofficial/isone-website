@@ -1,35 +1,73 @@
-// ================================
+// ==========================
 
-// IS ONE Official Website
+// IS ONE Website Script
 
-// script.js
+// Version 1.0
 
-// ================================
+// ==========================
 
-document.addEventListener("DOMContentLoaded", () => {
+console.log("IS ONE Website Loaded Successfully");
 
-    console.log("IS ONE Website Loaded Successfully.");
+// Welcome Message
 
-    // Current Year
-
-    const year = document.getElementById("year");
-
-    if (year) {
-
-        year.textContent = new Date().getFullYear();
-
-    }
-
-    // Welcome Message
+window.onload = function () {
 
     console.log("Welcome to IS ONE");
 
-});
+};
 
-// Simple Button Function
+// Button Click Effect
 
 function showMessage() {
 
     alert("Welcome to IS ONE Official Website!");
 
 }
+
+// Smooth Scroll
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+// Scroll Animation
+
+window.addEventListener("scroll", function () {
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        let position = card.getBoundingClientRect().top;
+
+        if (position < window.innerHeight - 100) {
+
+            card.style.opacity = "1";
+
+            card.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+});
+
+console.log("IS ONE Premium Script Active");
