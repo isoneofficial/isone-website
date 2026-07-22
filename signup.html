@@ -8,31 +8,123 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IS ONE - Sign Up</title>
+<title>IS ONE Sign Up</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<script type="module" src="firebase.js"></script>
+body{
 
-<script type="module" src="signup.js"></script>
+margin:0;
+
+background:#0d1117;
+
+font-family:Arial,sans-serif;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+color:white;
+
+}
+
+.box{
+
+background:#161b22;
+
+padding:30px;
+
+border-radius:15px;
+
+width:320px;
+
+text-align:center;
+
+}
+
+h2{
+
+color:#00bfff;
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+background:#00bfff;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+a{
+
+color:#00bfff;
+
+text-decoration:none;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="login-box">
+<div class="box">
 
-<h1>IS ONE</h1>
+<h2>Create IS ONE Account</h2>
 
-<h2>Create Account</h2>
+<input
 
-<input type="text" id="name" placeholder="Full Name">
+type="email"
 
-<input type="email" id="email" placeholder="Email">
+id="email"
 
-<input type="password" id="password" placeholder="Password">
+placeholder="Email Address">
 
-<button id="signupBtn">
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Password">
+
+<button onclick="signup()">
 
 Create Account
 
@@ -42,15 +134,13 @@ Create Account
 
 Already have an account?
 
-<a href="login.html">
-
-Login
-
-</a>
+<a href="login.html">Login</a>
 
 </p>
 
 </div>
+
+<script type="module" src="auth.js"></script>
 
 </body>
 
