@@ -20,7 +20,7 @@ loginBtn.addEventListener("click", async () => {
 
     alert("Login Successful!");
 
-    window.location.href = "index.html";
+    window.location.href="dashboard.html";
 
   } catch (error) {
 
