@@ -12,7 +12,7 @@ function ceoLogin() {
 
         alert("Welcome CEO!");
 
-        window.location.href = "dashboard.html";
+        window.location.href = "ceo-dashboard.html";
 
     } else {
 
