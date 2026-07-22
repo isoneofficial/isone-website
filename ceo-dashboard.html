@@ -1,1 +1,149 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IS ONE CEO Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+
+    margin:0;
+
+    background:#0d1117;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+}
+
+header{
+
+    background:#161b22;
+
+    padding:20px;
+
+    text-align:center;
+
+    font-size:30px;
+
+    color:#3fb9ff;
+
+    font-weight:bold;
+
+}
+
+.container{
+
+    padding:20px;
+
+}
+
+.card{
+
+    background:#1f2937;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+.card h2{
+
+    margin-top:0;
+
+    color:#3fb9ff;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    margin-top:10px;
+
+    background:#3fb9ff;
+
+    color:#000;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+👑 IS ONE CEO Dashboard
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Welcome CEO</h2>
+
+<p>You are successfully logged into the IS ONE Control Panel.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Quick Access</h2>
+
+<button>👥 Members</button>
+
+<button>🪪 IS ID Cards</button>
+
+<button>🌐 Website Manager</button>
+
+<button>📰 News</button>
+
+<button>⚙ Settings</button>
+
+<button onclick="logout()">🚪 Logout</button>
+
+</div>
+
+</div>
+
+<script>
+
+function logout(){
+
+localStorage.clear();
+
+window.location.href="ceo-login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
