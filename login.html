@@ -10,11 +10,123 @@
 
 <title>IS ONE Login</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<script type="module" src="firebase.js"></script>
+*{
 
-<script type="module" src="auth.js"></script>
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:Arial,sans-serif;
+
+}
+
+body{
+
+background:#0d1117;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+color:white;
+
+}
+
+.login-box{
+
+width:350px;
+
+background:#161b22;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 0 20px rgba(0,0,0,.4);
+
+text-align:center;
+
+}
+
+h1{
+
+color:#33c3ff;
+
+margin-bottom:20px;
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:8px;
+
+background:#33c3ff;
+
+color:black;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#00b4ff;
+
+}
+
+p{
+
+margin-top:15px;
+
+font-size:14px;
+
+}
+
+a{
+
+color:#33c3ff;
+
+text-decoration:none;
+
+}
+
+</style>
 
 </head>
 
@@ -24,43 +136,127 @@
 
 <h1>IS ONE</h1>
 
-<h2>Login</h2>
+<input type="email" id="email" placeholder="Email">
 
-<input
+<input type="password" id="password" placeholder="Password">
 
-type="email"
+<button onclick="login()">Login</button>
 
-id="email"
+<br><br>
 
-placeholder="Email">
+<input type="text" id="phone" placeholder="+8801XXXXXXXXX">
 
-<input
+<div id="recaptcha-container"></div>
 
-type="password"
-
-id="password"
-
-placeholder="Password">
-
-<button id="loginBtn">
-
-Login
-
-</button>
+<button onclick="phoneLogin()">Login with Phone</button>
 
 <p>
 
 Don't have an account?
 
-<a href="signup.html">
-
-Create Account
-
-</a>
+<a href="signup.html">Create Account</a>
 
 </p>
 
 </div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+getAuth,
+
+signInWithEmailAndPassword,
+
+RecaptchaVerifier,
+
+signInWithPhoneNumber
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDChtZ53ffjH6w10tTF8NS5VbW0lWmJpjk",
+
+authDomain: "is-one-36ebc.firebaseapp.com",
+
+projectId: "is-one-36ebc",
+
+storageBucket: "is-one-36ebc.firebasestorage.app",
+
+messagingSenderId: "446720779948",
+
+appId: "1:446720779948:web:c71b5f98d347e21647a109",
+
+measurementId: "G-QX9LVCHFFE"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+window.login=function(){
+
+const email=document.getElementById("email").value;
+
+const password=document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+alert("Login Success");
+
+window.location.href="index.html";
+
+})
+
+.catch(error=>{
+
+alert(error.message);
+
+});
+
+}
+
+window.recaptchaVerifier=new RecaptchaVerifier(auth,"recaptcha-container",{});
+
+window.phoneLogin=function(){
+
+const phone=document.getElementById("phone").value;
+
+signInWithPhoneNumber(auth,phone,window.recaptchaVerifier)
+
+.then(result=>{
+
+const code=prompt("Enter OTP");
+
+return result.confirm(code);
+
+})
+
+.then(()=>{
+
+alert("Phone Login Success");
+
+window.location.href="index.html";
+
+})
+
+.catch(error=>{
+
+alert(error.message);
+
+});
+
+}
+
+</script>
 
 </body>
 
