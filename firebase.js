@@ -1,3 +1,9 @@
+// firebase.js
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 const firebaseConfig = {
 
   apiKey: "AIzaSyDChtZ53ffjH6w10tTF8NS5VbW0lWmJpjk",
@@ -15,3 +21,9 @@ const firebaseConfig = {
   measurementId: "G-QX9LVCHFFE"
 
 };
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+export { auth };
