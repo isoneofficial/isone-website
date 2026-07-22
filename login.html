@@ -14,75 +14,91 @@
 
 body{
 
-    margin:0;
+margin:0;
 
-    font-family:Arial,sans-serif;
+font-family:Arial,sans-serif;
 
-    background:#0d1117;
+background:#0d1117;
 
-    color:#fff;
+color:#fff;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    height:100vh;
+height:100vh;
 
 }
 
 .box{
 
-    width:320px;
+width:340px;
 
-    background:#161b22;
+background:#161b22;
 
-    padding:30px;
+padding:30px;
 
-    border-radius:15px;
+border-radius:15px;
 
-    text-align:center;
+text-align:center;
 
 }
 
 input{
 
-    width:100%;
+width:100%;
 
-    padding:12px;
+padding:12px;
 
-    margin:10px 0;
+margin:10px 0;
 
-    border:none;
+border:none;
 
-    border-radius:8px;
+border-radius:8px;
+
+box-sizing:border-box;
 
 }
 
 button{
 
-    width:100%;
+width:100%;
 
-    padding:12px;
+padding:12px;
 
-    background:#00bfff;
+margin-top:10px;
 
-    border:none;
+background:#00bfff;
 
-    border-radius:8px;
+border:none;
 
-    color:#fff;
+border-radius:8px;
 
-    font-size:16px;
+color:#fff;
 
-    cursor:pointer;
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0099cc;
 
 }
 
 h2{
 
-    color:#00bfff;
+color:#00bfff;
+
+}
+
+#otpBox{
+
+display:none;
 
 }
 
@@ -96,13 +112,45 @@ h2{
 
 <h2>IS ONE Login</h2>
 
-<input type="text" id="phone" placeholder="Phone Number">
+<input
 
-<button>Send OTP</button>
+type="text"
 
-<p id="result"></p>
+id="phone"
+
+placeholder="+8801XXXXXXXXX">
+
+<div id="recaptcha-container"></div>
+
+<button onclick="sendOTP()">
+
+Send OTP
+
+</button>
+
+<div id="otpBox">
+
+<input
+
+type="text"
+
+id="otp"
+
+placeholder="Enter OTP">
+
+<button onclick="verifyOTP()">
+
+Verify OTP
+
+</button>
 
 </div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module" src="login.js"></script>
 
 </body>
 
