@@ -8,17 +8,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IS ONE Login</title>
+<title>IS ONE CEO Login</title>
 
 <style>
 
-body{
+*{
 
 margin:0;
 
-background:#0d1117;
+padding:0;
+
+box-sizing:border-box;
 
 font-family:Arial,sans-serif;
+
+}
+
+body{
+
+background:#0d1117;
 
 display:flex;
 
@@ -32,23 +40,43 @@ color:white;
 
 }
 
-.box{
+.login-box{
+
+width:360px;
 
 background:#161b22;
 
-padding:30px;
+padding:35px;
 
-border-radius:15px;
+border-radius:18px;
 
-width:320px;
+box-shadow:0 0 20px rgba(0,191,255,.25);
 
 text-align:center;
 
 }
 
-h2{
+.logo{
 
-color:#00bfff;
+font-size:34px;
+
+margin-bottom:10px;
+
+}
+
+h1{
+
+color:#00BFFF;
+
+margin-bottom:8px;
+
+}
+
+p{
+
+color:#bdbdbd;
+
+margin-bottom:25px;
 
 }
 
@@ -56,15 +84,21 @@ input{
 
 width:100%;
 
-padding:12px;
+padding:14px;
 
 margin:10px 0;
 
 border:none;
 
-border-radius:8px;
+border-radius:10px;
+
+background:#242b36;
+
+color:white;
 
 font-size:16px;
+
+outline:none;
 
 }
 
@@ -72,29 +106,39 @@ button{
 
 width:100%;
 
-padding:12px;
+padding:14px;
 
-margin-top:10px;
+margin-top:15px;
 
-background:#00bfff;
+background:#00BFFF;
 
 color:white;
 
 border:none;
 
-border-radius:8px;
+border-radius:10px;
 
-font-size:16px;
+font-size:17px;
+
+font-weight:bold;
 
 cursor:pointer;
 
 }
 
-a{
+button:hover{
 
-color:#00bfff;
+background:#009acd;
 
-text-decoration:none;
+}
+
+.footer{
+
+margin-top:20px;
+
+font-size:13px;
+
+color:#888;
 
 }
 
@@ -104,17 +148,21 @@ text-decoration:none;
 
 <body>
 
-<div class="box">
+<div class="login-box">
 
-<h2>IS ONE Login</h2>
+<div class="logo">👑</div>
+
+<h1>IS ONE</h1>
+
+<p>Founder & CEO Login</p>
 
 <input
 
-type="email"
+type="text"
 
-id="email"
+id="username"
 
-placeholder="Email Address">
+placeholder="Username">
 
 <input
 
@@ -124,23 +172,41 @@ id="password"
 
 placeholder="Password">
 
-<button onclick="login()">
+<button onclick="ceoLogin()">
 
-Login
+LOGIN
 
 </button>
 
-<p>
+<div class="footer">
 
-Don't have an account?
-
-<a href="signup.html">Create Account</a>
-
-</p>
+IS ONE Version 1.0
 
 </div>
 
-<script type="module" src="auth.js"></script>
+</div>
+
+<script>
+
+function ceoLogin(){
+
+let username=document.getElementById("username").value;
+
+let password=document.getElementById("password").value;
+
+if(username==="IS ONE CEO" && password==="123456"){
+
+window.location.href="dashboard.html";
+
+}else{
+
+alert("Invalid Username or Password");
+
+}
+
+}
+
+</script>
 
 </body>
 
