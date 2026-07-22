@@ -16,11 +16,9 @@ body{
 
 margin:0;
 
-font-family:Arial,sans-serif;
-
 background:#0d1117;
 
-color:#fff;
+font-family:Arial,sans-serif;
 
 display:flex;
 
@@ -30,11 +28,11 @@ align-items:center;
 
 height:100vh;
 
+color:white;
+
 }
 
 .box{
-
-width:340px;
 
 background:#161b22;
 
@@ -42,7 +40,15 @@ padding:30px;
 
 border-radius:15px;
 
+width:320px;
+
 text-align:center;
+
+}
+
+h2{
+
+color:#00bfff;
 
 }
 
@@ -58,7 +64,7 @@ border:none;
 
 border-radius:8px;
 
-box-sizing:border-box;
+font-size:16px;
 
 }
 
@@ -72,11 +78,11 @@ margin-top:10px;
 
 background:#00bfff;
 
+color:white;
+
 border:none;
 
 border-radius:8px;
-
-color:#fff;
 
 font-size:16px;
 
@@ -84,21 +90,11 @@ cursor:pointer;
 
 }
 
-button:hover{
-
-background:#0099cc;
-
-}
-
-h2{
+a{
 
 color:#00bfff;
 
-}
-
-#otpBox{
-
-display:none;
+text-decoration:none;
 
 }
 
@@ -114,43 +110,37 @@ display:none;
 
 <input
 
-type="text"
+type="email"
 
-id="phone"
+id="email"
 
-placeholder="+8801XXXXXXXXX">
-
-<div id="recaptcha-container"></div>
-
-<button onclick="sendOTP()">
-
-Send OTP
-
-</button>
-
-<div id="otpBox">
+placeholder="Email Address">
 
 <input
 
-type="text"
+type="password"
 
-id="otp"
+id="password"
 
-placeholder="Enter OTP">
+placeholder="Password">
 
-<button onclick="verifyOTP()">
+<button onclick="login()">
 
-Verify OTP
+Login
 
 </button>
 
-</div>
+<p>
+
+Don't have an account?
+
+<a href="signup.html">Create Account</a>
+
+</p>
 
 </div>
 
-<script type="module" src="firebase.js"></script>
-
-<script type="module" src="login.js"></script>
+<script type="module" src="auth.js"></script>
 
 </body>
 
