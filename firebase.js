@@ -1,8 +1,16 @@
-// firebase.js
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+
+  getAuth,
+
+  createUserWithEmailAndPassword,
+
+  signInWithEmailAndPassword,
+
+  signOut
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
 
@@ -26,4 +34,66 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-export { auth };
+// Signup
+
+window.signup = function () {
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+
+    .then(() => {
+
+      alert("Signup Successful!");
+
+      window.location.href = "login.html";
+
+    })
+
+    .catch((error) => {
+
+      alert(error.message);
+
+    });
+
+};
+
+// Login
+
+window.login = function () {
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+
+    .then(() => {
+
+      alert("Login Successful!");
+
+      window.location.href = "dashboard.html";
+
+    })
+
+    .catch((error) => {
+
+      alert(error.message);
+
+    });
+
+};
+
+// Logout
+
+window.logout = function () {
+
+  signOut(auth).then(() => {
+
+    window.location.href = "login.html";
+
+  });
+
+};
